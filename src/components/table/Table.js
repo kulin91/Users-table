@@ -13,7 +13,7 @@ const tableFieldConfig = [
 
 export default function Table() {
   const users = useUsersList();
-  console.log(users);
+  console.log(users.length);
   return (
     // <div>
     <>
