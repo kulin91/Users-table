@@ -1,0 +1,13 @@
+.tableContainer {
+  border-collapse: collapse;
+  border: 1px solid grey;
+}
+
+.tableThItem {
+  border: 1px solid grey;
+  /* padding-left: 16px; */
+  /* padding-right: 16px; */
+  padding: 8px 24px 8px 24px;
+  /* min-width: 10vw; */
+  /* max-width: 20vw; */
+}

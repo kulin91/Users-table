@@ -1,16 +1,24 @@
 import './style.css';
 
+const tableFieldConfig = [
+  { name: 'ID' },
+  { name: 'First name' },
+  { name: 'Last name' },
+  { name: 'Email' },
+  { name: 'Phone' },
+  { name: 'State' },
+];
+
 export default function Table() {
   return (
     <div>
-      <table border="1">
+      <table className="tableContainer">
         <tr>
-          <th>ID</th>
-          <th>First name</th>
-          <th>Last name</th>
-          <th>Email</th>
-          <th>Phone</th>
-          <th>State</th>
+          {tableFieldConfig.map((item) => (
+            <th className="tableThItem" key={item}>
+              {item.name}
+            </th>
+          ))}
         </tr>
       </table>
     </div>
