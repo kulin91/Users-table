@@ -7,12 +7,12 @@ export default function Table() {
   const {
     categoryTitles,
     users,
-    // selectedCategoryIndex,
+    selectedCategoryIndex,
     selectStateCategory,
     setSelectCategoryIndex,
+    activeSymbol,
   } = useUsers();
 
-  console.log(users[0]);
   return (
     <>
       <tbody className="tableContainer">
@@ -23,9 +23,9 @@ export default function Table() {
                 setSelectCategoryIndex(index);
                 selectStateCategory();
               }}
-              className="tableThItem"
+              className={selectedCategoryIndex === index ? 'tableThItemActive' : 'tableThItem'}
               key={item + index}>
-              {item}
+              {selectedCategoryIndex === index ? item + activeSymbol() : item}
             </th>
           ))}
         </tr>

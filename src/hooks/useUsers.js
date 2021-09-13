@@ -79,10 +79,19 @@ export default function useUsers() {
       return setStateCategory(true);
     }
   };
+  const activeSymbol = () => {
+    if (stateCategory === false) {
+      return '▼';
+    } else {
+      return '▲';
+    }
+  };
   return {
+    stateCategory,
     categoryTitles,
     users,
     selectedCategoryIndex,
+    activeSymbol,
     setSelectCategoryIndex,
     selectStateCategory,
   };

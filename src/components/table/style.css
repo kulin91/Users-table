@@ -8,3 +8,9 @@
   padding: 14px 24px 14px 24px;
   background-color: #bdbdbd;
 }
+
+.tableThItemActive {
+  border: 1px solid grey;
+  padding: 14px 24px 14px 24px;
+  background-color: #42a5f5;
+}
