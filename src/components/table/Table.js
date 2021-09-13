@@ -1,27 +1,31 @@
 import './style.css';
-import useUsersList from '../../hooks/useUsersList';
 import TableItem from '../tableItem/TableItem';
-
-const tableFieldConfig = [
-  { name: 'ID' },
-  { name: 'First name' },
-  { name: 'Last name' },
-  { name: 'Email' },
-  { name: 'Phone' },
-  { name: 'State' },
-];
+import useUsers from '../../hooks/useUsers';
 
 export default function Table() {
-  const users = useUsersList();
-  console.log(users.length);
+  // const users = useUsersList();
+  const {
+    categoryTitles,
+    users,
+    // selectedCategoryIndex,
+    selectStateCategory,
+    setSelectCategoryIndex,
+  } = useUsers();
+
+  console.log(users[0]);
   return (
-    // <div>
     <>
       <tbody className="tableContainer">
         <tr>
-          {tableFieldConfig.map((item, index) => (
-            <th className="tableThItem" key={item.name + index}>
-              {item.name}
+          {categoryTitles.map((item, index) => (
+            <th
+              onClick={() => {
+                setSelectCategoryIndex(index);
+                selectStateCategory();
+              }}
+              className="tableThItem"
+              key={item + index}>
+              {item}
             </th>
           ))}
         </tr>
