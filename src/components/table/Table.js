@@ -1,4 +1,6 @@
 import './style.css';
+import useUsersList from '../../hooks/useUsersList';
+import TableItem from '../tableItem/TableItem';
 
 const tableFieldConfig = [
   { name: 'ID' },
@@ -10,17 +12,32 @@ const tableFieldConfig = [
 ];
 
 export default function Table() {
+  const users = useUsersList();
+  console.log(users);
   return (
-    <div>
-      <table className="tableContainer">
+    // <div>
+    <>
+      <tbody className="tableContainer">
         <tr>
-          {tableFieldConfig.map((item) => (
-            <th className="tableThItem" key={item}>
+          {tableFieldConfig.map((item, index) => (
+            <th className="tableThItem" key={item.name + index}>
               {item.name}
             </th>
           ))}
         </tr>
-      </table>
-    </div>
+        {users.map((item, index) => (
+          <TableItem
+            key={item.phone + index}
+            id={item.id}
+            firstName={item.firstName}
+            lastName={item.lastName}
+            email={item.email}
+            phone={item.phone}
+            state={item.adress.state}
+          />
+        ))}
+      </tbody>
+    </>
+    // </div>
   );
 }
