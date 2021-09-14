@@ -2,6 +2,7 @@ import './style.css';
 import Table from '../../components/table/Table';
 import ProfileInfo from '../../components/profileInfo/ProfileInfo';
 import useUsers from '../../hooks/useUsers';
+import SearchInput from '../../components/searchInput/SearchInput';
 
 export default function UsersTable() {
   const {
@@ -13,9 +14,11 @@ export default function UsersTable() {
     setSelectCategoryIndex,
     activeSymbol,
     setSelectedProfile,
+    setValueSearchInput,
   } = useUsers();
   return (
     <div>
+      <SearchInput setValueSearchInput={setValueSearchInput} />
       <Table
         categoryTitles={categoryTitles}
         users={users}

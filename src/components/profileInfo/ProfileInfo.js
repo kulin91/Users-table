@@ -2,7 +2,6 @@ import './style.css';
 
 export default function ProfileInfo(props) {
   const { selectedProfile } = props;
-  console.log(selectedProfile);
   return (
     <div className={'profileInfoContainer'}>
       <div className="profileInfoTitle">ProfileInfo:</div>

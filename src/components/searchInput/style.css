@@ -1,0 +1,52 @@
+.dataInputContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 25px;
+  margin-bottom: 75px;
+}
+
+.titleOfSearchInput {
+  font-size: 30px;
+  margin: 30px;
+  font-weight: bold;
+}
+
+.boxForInput {
+  display: flex;
+}
+
+.entryField {
+  resize: none;
+  height: 40px;
+  width: 789px;
+  font-size: 20px;
+  border: none;
+  background-color: #f5f5f5;
+  border-radius: 10px;
+  overflow: auto;
+}
+
+.entryField:focus {
+  outline: none;
+  /* border: 1px solid red; */
+  box-shadow: 0 0 10px #81d4fa;
+}
+
+/* .button_add {
+  margin-left: 20px;
+  border: none;
+  border-radius: 10px;
+  width: 100px;
+  background-color: #29b6f6;
+}
+
+.button_add:hover {
+  background-color: #03a9f4;
+  box-shadow: 0 0 10px #81d4fa;
+}
+
+.button_add:active {
+  background-color: #b3e5fc;
+} */

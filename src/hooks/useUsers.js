@@ -69,6 +69,7 @@ const categoryTitles = categoriesFiltersConfig.map((x) => x.name);
 export default function useUsers() {
   const [selectedCategoryIndex, setSelectCategoryIndex] = useState(3);
   const [stateCategory, setStateCategory] = useState(true);
+  const [valueSearchInput, setValueSearchInput] = useState('');
   const [selectedProfile, setSelectedProfile] = useState({
     id: 655,
     firstName: 'Anteria',
@@ -111,6 +112,7 @@ export default function useUsers() {
     setSelectCategoryIndex,
     selectStateCategory,
     setSelectedProfile,
+    setValueSearchInput,
   };
 }
 
