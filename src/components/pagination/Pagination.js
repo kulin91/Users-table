@@ -5,10 +5,16 @@ export default function Pagination(props) {
 
   return (
     <div className="paginationContainer">
-      <button className="paginationButton" disabled={!isPrevVisible} onClick={() => prevPage()}>
+      <button
+        className="paginationButton button_add"
+        disabled={!isPrevVisible}
+        onClick={() => prevPage()}>
         Prev
       </button>
-      <button className="paginationButton" disabled={!isNextVisible} onClick={() => nextPage()}>
+      <button
+        className="paginationButton button_add"
+        disabled={!isNextVisible}
+        onClick={() => nextPage()}>
         Next
       </button>
     </div>

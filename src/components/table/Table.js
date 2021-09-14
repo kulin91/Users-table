@@ -22,8 +22,8 @@ export default function Table(props) {
 
   return (
     <>
-      <table>
-        <thead className="tableContainer">
+      <table className="tableMainContainer" cellSpacing="0">
+        <thead className="tableContainerHead">
           <tr>
             {categoryTitles.map((item, index) => (
               <th

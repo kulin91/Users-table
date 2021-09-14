@@ -3,7 +3,6 @@ import Table from '../../components/table/Table';
 import ProfileInfo from '../../components/profileInfo/ProfileInfo';
 import useGridData from '../../hooks/useGridData';
 import SearchInput from '../../components/searchInput/SearchInput';
-import Select from '../../components/select/Select';
 
 export default function UsersTable() {
   const {
@@ -24,11 +23,11 @@ export default function UsersTable() {
   return (
     <div>
       <div className="header">
-        <SearchInput setValueSearchInput={setValueSearchInput} />
-        <Select
+        <SearchInput
           allStates={allStates}
           setSelectedState={setSelectedState}
           selectedState={selectedState}
+          setValueSearchInput={setValueSearchInput}
         />
       </div>
       <Table

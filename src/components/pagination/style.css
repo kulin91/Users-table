@@ -6,3 +6,23 @@
 .paginationButton {
   margin-left: 10px;
 }
+
+.button_add {
+  font-weight: bold;
+  color: #212121;
+  margin-left: 20px;
+  border: none;
+  border-radius: 10px;
+  height: 35px;
+  width: 100px;
+  background-color: #29b6f6;
+}
+
+.button_add:hover {
+  background-color: #03a9f4;
+  box-shadow: 0 0 10px #81d4fa;
+}
+
+.button_add:active {
+  background-color: #b3e5fc;
+}

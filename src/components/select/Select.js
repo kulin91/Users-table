@@ -12,7 +12,7 @@ export default function Select(props) {
 
   return (
     <div className="selectComponentContainer">
-      <select value={selectedState} onChange={handleChange}>
+      <select className="select-css" value={selectedState} onChange={handleChange}>
         {allStatesArray.map((item, index) => (
           <option value={item} key={item + index}>
             {item}

@@ -26,9 +26,9 @@ const categoriesFiltersConfig = [
     name: 'Last name',
     filter: (values, state) => {
       if (state === true) {
-        return values.sort(sortByLastName);
+        return values.sort((x, y) => sortByField(x, y, 'lastName'));
       } else {
-        return values.sort(sortByLastName).reverse();
+        return values.sort((x, y) => sortByField(x, y, 'lastName')).reverse();
       }
     },
   },
@@ -36,9 +36,9 @@ const categoriesFiltersConfig = [
     name: 'Email',
     filter: (values, state) => {
       if (state === true) {
-        return values.sort(sortByEmail);
+        return values.sort((x, y) => sortByField(x, y, 'email'));
       } else {
-        return values.sort(sortByEmail).reverse();
+        return values.sort((x, y) => sortByField(x, y, 'email')).reverse();
       }
     },
   },
@@ -46,9 +46,9 @@ const categoriesFiltersConfig = [
     name: 'Phone',
     filter: (values, state) => {
       if (state === true) {
-        return values.sort(sortByPhone);
+        return values.sort((x, y) => sortByField(x, y, 'phone'));
       } else {
-        return values.sort(sortByPhone).reverse();
+        return values.sort((x, y) => sortByField(x, y, 'phone')).reverse();
       }
     },
   },
@@ -106,7 +106,7 @@ export default function useGridData() {
   };
 
   const activeSymbol = () => {
-    return stateCategory ? '▲' : '▼';
+    return stateCategory ? ' ▲' : ' ▼';
   };
 
   return {
@@ -126,53 +126,6 @@ export default function useGridData() {
   };
 }
 
-function sortById(x, y) {
-  if (x.id < y.id) {
-    return -1;
-  }
-  if (x.id > y.id) {
-    return 1;
-  }
-  return 0;
-}
-
-function sortByFirstName(x, y) {
-  if (x.firstName < y.firstName) {
-    return -1;
-  }
-  if (x.firstName > y.firstName) {
-    return 1;
-  }
-  return 0;
-}
-
-function sortByLastName(x, y) {
-  if (x.lastName < y.lastName) {
-    return -1;
-  }
-  if (x.lastName > y.lastName) {
-    return 1;
-  }
-  return 0;
-}
-function sortByEmail(x, y) {
-  if (x.email < y.email) {
-    return -1;
-  }
-  if (x.email > y.email) {
-    return 1;
-  }
-  return 0;
-}
-function sortByPhone(x, y) {
-  if (x.phone < y.phone) {
-    return -1;
-  }
-  if (x.phone > y.phone) {
-    return 1;
-  }
-  return 0;
-}
 function sortByState(x, y) {
   if (x.adress.state < y.adress.state) {
     return -1;

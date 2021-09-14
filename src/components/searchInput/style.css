@@ -18,6 +18,8 @@
 }
 
 .entryField {
+  margin-left: 40px;
+  margin-right: 40px;
   resize: none;
   height: 40px;
   width: 400px;

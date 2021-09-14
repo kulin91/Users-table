@@ -4,15 +4,33 @@ export default function ProfileInfo(props) {
   const { selectedProfile } = props;
   return (
     <div className={'profileInfoContainer'}>
-      <div className="profileInfoTitle">ProfileInfo:</div>
-      <div className="profileInfoSelectedProfile">
-        Selected Profile: {selectedProfile.firstName} {selectedProfile.lastName}
+      <div className="profileInfoTitle">Profile Info:</div>
+      <div className="profileInfoDescriptionDiv">
+        <span className="profileInfoDescription">Selected Profile: </span>
+        <span className="profileInfoDescriptionSpan">
+          {selectedProfile.firstName} {selectedProfile.lastName}
+        </span>
       </div>
-      <div className="profileInfoDescription">Description: {selectedProfile.description}</div>
-      <div className="profileInfoAdress">Adress: {selectedProfile.adress.streetAddress}</div>
-      <div className="profileInfoSity">City: {selectedProfile.adress.city}</div>
-      <div className="profileInfoState">State: {selectedProfile.adress.state}</div>
-      <div className="profileInfoIndex">Index: {selectedProfile.adress.zip}</div>
+      <div className="profileInfoDescriptionDiv">
+        <span className="profileInfoDescription">Description: </span>
+        <span className="profileInfoDescriptionSpan">{selectedProfile.description}</span>
+      </div>
+      <div className="profileInfoDescriptionDiv">
+        <span className="profileInfoDescription">Address: </span>
+        <span className="profileInfoDescriptionSpan">{selectedProfile.adress.streetAddress}</span>
+      </div>
+      <div className="profileInfoDescriptionDiv">
+        <span className="profileInfoDescription">City: </span>
+        <span className="profileInfoDescriptionSpan">{selectedProfile.adress.city}</span>
+      </div>
+      <div className="profileInfoDescriptionDiv">
+        <span className="profileInfoDescription">State: </span>
+        <span className="profileInfoDescriptionSpan">{selectedProfile.adress.state}</span>
+      </div>
+      <div className="profileInfoDescriptionDiv">
+        <span className="profileInfoDescription">Index: </span>
+        <span className="profileInfoDescriptionSpan">{selectedProfile.adress.zip}</span>
+      </div>
     </div>
   );
 }

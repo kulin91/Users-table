@@ -1,17 +1,24 @@
 .tableContainer {
   border-collapse: collapse;
-  border: 1px solid grey;
+  /* border: 1px solid grey; */
 }
 
 .tableThItem {
-  border: 1px solid grey;
+  /* border: 1px solid grey; */
   padding: 14px 24px 14px 24px;
   background-color: #bdbdbd;
   cursor: pointer;
 }
 
 .tableThItemActive {
-  border: 1px solid grey;
+  /* border: 1px solid grey; */
   padding: 14px 24px 14px 24px;
   background-color: #42a5f5;
+}
+
+.tableMainContainer {
+  border: 1px solid grey;
+  width: 850px;
+  margin: 10px;
+  user-select: none;
 }

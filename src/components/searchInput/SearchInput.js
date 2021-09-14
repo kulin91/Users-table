@@ -1,10 +1,11 @@
 import './style.css';
 import React from 'react';
+import Select from '../select/Select';
 
 const textInput = React.createRef();
 
 export default function SearchInput(props) {
-  const { setValueSearchInput } = props;
+  const { setValueSearchInput, allStates, setSelectedState, selectedState } = props;
 
   return (
     <div className="dataInputContainer">
@@ -16,6 +17,11 @@ export default function SearchInput(props) {
           onChange={() => setValueSearchInput(textInput.current.value)}
           className="entryField"
           placeholder=" Search..."
+        />
+        <Select
+          allStates={allStates}
+          setSelectedState={setSelectedState}
+          selectedState={selectedState}
         />
       </div>
     </div>
