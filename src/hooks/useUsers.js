@@ -84,10 +84,12 @@ export default function useUsers() {
     },
     description: '{lorem|32',
   });
-
+  //
   const usersList = useUsersList();
+  //
+  const filteredUsers = actualUsers(usersList, valueSearchInput);
   const config = categoriesFiltersConfig[selectedCategoryIndex];
-  const users = config.filter(usersList, stateCategory);
+  const users = config.filter(filteredUsers, stateCategory);
   const selectStateCategory = () => {
     if (stateCategory === true) {
       return setStateCategory(false);
@@ -172,3 +174,84 @@ function sortByState(x, y) {
   }
   return 0;
 }
+
+// function sortByField(x, y, field) {
+//   return x[field] - y[field];
+// }
+
+// const data = [{ adress: 'minsk', email: 'a@a', addressState: 'SSS' }];
+// const input = 'SSS';
+
+// data.filter(
+//   (x) => x.address.include(input) || x.email.include(input) || x.addressState.include(input),
+// );
+// data.filter(
+//   (x) =>
+//     x.id.includes(input) ||
+//     x.firstName.includes(input) ||
+//     x.lastName.includes(input) ||
+//     x.email.includes(input) ||
+//     x.phone.includes(input) ||
+//     x.adress.state.includes(input),
+// );
+
+// const ds = [
+//   {
+//     id: 655,
+//     firstName: 'Anteria',
+//     lastName: 'Slocum',
+//     email: 'SPaulsen@donec.org',
+//     phone: '(967)760-0580',
+//     adress: {
+//       streetAddress: '6388 Lacus Ct',
+//       city: 'Kenora',
+//       state: 'IA',
+//       zip: '49758',
+//     },
+//     description: '{lorem|32',
+//   },
+//   {
+//     id: 111,
+//     firstName: 'Anteria',
+//     lastName: 'Slocum',
+//     email: 'SPaulsen@donec.org',
+//     phone: '(967)760-0580',
+//     adress: {
+//       streetAddress: '6388 Lacus Ct',
+//       city: 'Kenora',
+//       state: 'IA',
+//       zip: '49758',
+//     },
+//     description: '{lorem|32',
+//   },
+//   {
+//     id: 22,
+//     firstName: 'Anteria',
+//     lastName: 'Slocum',
+//     email: 'SPaulsen@donec.org',
+//     phone: '(967)760-0580',
+//     adress: {
+//       streetAddress: '6388 Lacus Ct',
+//       city: 'Kenora',
+//       state: 'IA',
+//       zip: '49758',
+//     },
+//     description: '{lorem|32',
+//   },
+// ];
+
+const actualUsers = (array, seachValue) => {
+  if (seachValue === '') {
+    return array;
+  } else {
+    return array.filter(
+      (x) =>
+        x.id.toString().includes(seachValue) ||
+        x.firstName.toString().includes(seachValue) ||
+        x.lastName.toString().includes(seachValue) ||
+        x.email.toString().includes(seachValue) ||
+        x.phone.toString().includes(seachValue) ||
+        x.adress.state.toString().includes(seachValue),
+    );
+  }
+};
