@@ -1,3 +1,7 @@
+.tableItemRowActive {
+  background-color: aquamarine;
+}
+
 .tableItemContainer {
   border: 1px solid grey;
   padding: 4px 18px 4px 18px;

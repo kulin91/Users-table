@@ -12,6 +12,7 @@ export default function Table(props) {
     setSelectCategoryIndex,
     activeSymbol,
     setSelectedProfile,
+    selectedProfile,
   } = props;
 
   return (
@@ -34,6 +35,7 @@ export default function Table(props) {
           <TableItem
             key={item.phone + index}
             setSelectedProfile={setSelectedProfile}
+            selectedProfile={selectedProfile}
             item={item}
             id={item.id}
             firstName={item.firstName}

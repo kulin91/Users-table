@@ -24,6 +24,7 @@ export default function UsersTable() {
         setSelectCategoryIndex={setSelectCategoryIndex}
         activeSymbol={activeSymbol}
         setSelectedProfile={setSelectedProfile}
+        selectedProfile={selectedProfile}
       />
       <ProfileInfo selectedProfile={selectedProfile} />
     </div>
