@@ -1,8 +1,8 @@
 import './style.css';
 import TableItem from '../tableItem/TableItem';
-import useUsers from '../../hooks/useUsers';
+// import useUsers from '../../hooks/useUsers';
 
-export default function Table() {
+export default function Table(props) {
   // const users = useUsersList();
   const {
     categoryTitles,
@@ -11,7 +11,8 @@ export default function Table() {
     selectStateCategory,
     setSelectCategoryIndex,
     activeSymbol,
-  } = useUsers();
+    setSelectedProfile,
+  } = props;
 
   return (
     <>
@@ -32,6 +33,8 @@ export default function Table() {
         {users.map((item, index) => (
           <TableItem
             key={item.phone + index}
+            setSelectedProfile={setSelectedProfile}
+            item={item}
             id={item.id}
             firstName={item.firstName}
             lastName={item.lastName}

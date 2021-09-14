@@ -1,9 +1,12 @@
 import './style.css';
 
 export default function TableItem(props) {
-  const { id, firstName, lastName, email, phone, state } = props;
+  const { id, firstName, lastName, email, phone, state, item, setSelectedProfile } = props;
   return (
-    <tr>
+    <tr
+      onClick={() => {
+        setSelectedProfile(item);
+      }}>
       <th className="tableItemContainer">{id}</th>
       <th className="tableItemContainer">{firstName}</th>
       <th className="tableItemContainer">{lastName}</th>

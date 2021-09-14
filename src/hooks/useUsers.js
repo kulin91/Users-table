@@ -69,6 +69,21 @@ const categoryTitles = categoriesFiltersConfig.map((x) => x.name);
 export default function useUsers() {
   const [selectedCategoryIndex, setSelectCategoryIndex] = useState(3);
   const [stateCategory, setStateCategory] = useState(true);
+  const [selectedProfile, setSelectedProfile] = useState({
+    id: 655,
+    firstName: 'Anteria',
+    lastName: 'Slocum',
+    email: 'SPaulsen@donec.org',
+    phone: '(967)760-0580',
+    adress: {
+      streetAddress: '6388 Lacus Ct',
+      city: 'Kenora',
+      state: 'IA',
+      zip: '49758',
+    },
+    description: '{lorem|32',
+  });
+
   const usersList = useUsersList();
   const config = categoriesFiltersConfig[selectedCategoryIndex];
   const users = config.filter(usersList, stateCategory);
@@ -91,9 +106,11 @@ export default function useUsers() {
     categoryTitles,
     users,
     selectedCategoryIndex,
+    selectedProfile,
     activeSymbol,
     setSelectCategoryIndex,
     selectStateCategory,
+    setSelectedProfile,
   };
 }
 
