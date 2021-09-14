@@ -3,6 +3,7 @@ import Table from '../../components/table/Table';
 import ProfileInfo from '../../components/profileInfo/ProfileInfo';
 import useUsers from '../../hooks/useUsers';
 import SearchInput from '../../components/searchInput/SearchInput';
+import Select from '../../components/select/Select';
 
 export default function UsersTable() {
   const {
@@ -10,15 +11,25 @@ export default function UsersTable() {
     users,
     selectedCategoryIndex,
     selectedProfile,
+    allStates,
+    selectedState,
     selectStateCategory,
     setSelectCategoryIndex,
     activeSymbol,
     setSelectedProfile,
     setValueSearchInput,
+    setSelectedState,
   } = useUsers();
   return (
     <div>
-      <SearchInput setValueSearchInput={setValueSearchInput} />
+      <div className="header">
+        <SearchInput setValueSearchInput={setValueSearchInput} />
+        <Select
+          allStates={allStates}
+          setSelectedState={setSelectedState}
+          selectedState={selectedState}
+        />
+      </div>
       <Table
         categoryTitles={categoryTitles}
         users={users}

@@ -8,14 +8,14 @@ export default function SearchInput(props) {
 
   return (
     <div className="dataInputContainer">
-      <span className="titleOfSearchInput">Search by name</span>
+      <span className="titleOfSearchInput">Search</span>
       <div className="boxForInput">
         <input
           ref={textInput}
           type="text"
           onChange={() => setValueSearchInput(textInput.current.value)}
           className="entryField"
-          placeholder=" Search by name..."
+          placeholder=" Search..."
         />
       </div>
     </div>

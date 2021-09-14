@@ -68,6 +68,7 @@ const categoryTitles = categoriesFiltersConfig.map((x) => x.name);
 
 export default function useUsers() {
   const [selectedCategoryIndex, setSelectCategoryIndex] = useState(3);
+  const [selectedState, setSelectedState] = useState('All state');
   const [stateCategory, setStateCategory] = useState(true);
   const [valueSearchInput, setValueSearchInput] = useState('');
   const [selectedProfile, setSelectedProfile] = useState({
@@ -88,7 +89,11 @@ export default function useUsers() {
   const usersList = useUsersList();
   //
   let filteredUsers = actualUsers(usersList, valueSearchInput);
-  filteredUsers = searchByState(filteredUsers, '');
+  const allStates = new Set();
+  for (let i = 0; i < filteredUsers.length; i++) {
+    allStates.add(filteredUsers[i].adress.state);
+  }
+  filteredUsers = searchByState(filteredUsers, selectedState);
   const config = categoriesFiltersConfig[selectedCategoryIndex];
   const users = config.filter(filteredUsers, stateCategory);
   const selectStateCategory = () => {
@@ -111,11 +116,14 @@ export default function useUsers() {
     users,
     selectedCategoryIndex,
     selectedProfile,
+    allStates,
+    selectedState,
     activeSymbol,
     setSelectCategoryIndex,
     selectStateCategory,
     setSelectedProfile,
     setValueSearchInput,
+    setSelectedState,
   };
 }
 
@@ -247,20 +255,22 @@ const actualUsers = (array, seachValue) => {
   } else {
     return array.filter(
       (x) =>
-        x.id.toString().includes(seachValue) ||
-        x.firstName.toString().includes(seachValue) ||
-        x.lastName.toString().includes(seachValue) ||
-        x.email.toString().includes(seachValue) ||
-        x.phone.toString().includes(seachValue) ||
-        x.adress.state.toString().includes(seachValue),
+        x.id.toString().toUpperCase().includes(seachValue.toUpperCase()) ||
+        x.firstName.toString().toUpperCase().includes(seachValue.toUpperCase()) ||
+        x.lastName.toString().toUpperCase().includes(seachValue.toUpperCase()) ||
+        x.email.toString().toUpperCase().includes(seachValue.toUpperCase()) ||
+        x.phone.toString().toUpperCase().includes(seachValue.toUpperCase()) ||
+        x.adress.state.toString().toUpperCase().includes(seachValue.toUpperCase()),
     );
   }
 };
 
 const searchByState = (array, seachValue) => {
-  if (seachValue === '') {
+  if (seachValue === 'All state') {
     return array;
   } else {
     return array.filter((x) => x.adress.state.toString().includes(seachValue));
   }
 };
+
+///////
