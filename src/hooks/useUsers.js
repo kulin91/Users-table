@@ -87,7 +87,8 @@ export default function useUsers() {
   //
   const usersList = useUsersList();
   //
-  const filteredUsers = actualUsers(usersList, valueSearchInput);
+  let filteredUsers = actualUsers(usersList, valueSearchInput);
+  filteredUsers = searchByState(filteredUsers, '');
   const config = categoriesFiltersConfig[selectedCategoryIndex];
   const users = config.filter(filteredUsers, stateCategory);
   const selectStateCategory = () => {
@@ -253,5 +254,13 @@ const actualUsers = (array, seachValue) => {
         x.phone.toString().includes(seachValue) ||
         x.adress.state.toString().includes(seachValue),
     );
+  }
+};
+
+const searchByState = (array, seachValue) => {
+  if (seachValue === '') {
+    return array;
+  } else {
+    return array.filter((x) => x.adress.state.toString().includes(seachValue));
   }
 };
