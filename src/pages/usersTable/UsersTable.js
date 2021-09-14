@@ -1,7 +1,7 @@
 import './style.css';
 import Table from '../../components/table/Table';
 import ProfileInfo from '../../components/profileInfo/ProfileInfo';
-import useUsers from '../../hooks/useUsers';
+import useGridData from '../../hooks/useGridData';
 import SearchInput from '../../components/searchInput/SearchInput';
 import Select from '../../components/select/Select';
 
@@ -19,7 +19,8 @@ export default function UsersTable() {
     setSelectedProfile,
     setValueSearchInput,
     setSelectedState,
-  } = useUsers();
+  } = useGridData();
+
   return (
     <div>
       <div className="header">

@@ -1,0 +1,8 @@
+.paginationContainer {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.paginationButton {
+  margin-left: 10px;
+}

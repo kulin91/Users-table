@@ -7,6 +7,7 @@
   border: 1px solid grey;
   padding: 14px 24px 14px 24px;
   background-color: #bdbdbd;
+  cursor: pointer;
 }
 
 .tableThItemActive {

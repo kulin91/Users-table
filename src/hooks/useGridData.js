@@ -6,9 +6,9 @@ const categoriesFiltersConfig = [
     name: 'Id',
     filter: (values, state) => {
       if (state === true) {
-        return values.sort(sortById);
+        return values.sort((x, y) => sortByField(x, y, 'id'));
       } else {
-        return values.sort(sortById).reverse();
+        return values.sort((x, y) => sortByField(x, y, 'id')).reverse();
       }
     },
   },
@@ -16,9 +16,9 @@ const categoriesFiltersConfig = [
     name: 'First name',
     filter: (values, state) => {
       if (state === true) {
-        return values.sort(sortByFirstName);
+        return values.sort((x, y) => sortByField(x, y, 'firstName'));
       } else {
-        return values.sort(sortByFirstName).reverse();
+        return values.sort((x, y) => sortByField(x, y, 'firstName')).reverse();
       }
     },
   },
@@ -66,7 +66,7 @@ const categoriesFiltersConfig = [
 
 const categoryTitles = categoriesFiltersConfig.map((x) => x.name);
 
-export default function useUsers() {
+export default function useGridData() {
   const [selectedCategoryIndex, setSelectCategoryIndex] = useState(3);
   const [selectedState, setSelectedState] = useState('All state');
   const [stateCategory, setStateCategory] = useState(true);
@@ -96,6 +96,7 @@ export default function useUsers() {
   filteredUsers = searchByState(filteredUsers, selectedState);
   const config = categoriesFiltersConfig[selectedCategoryIndex];
   const users = config.filter(filteredUsers, stateCategory);
+
   const selectStateCategory = () => {
     if (stateCategory === true) {
       return setStateCategory(false);
@@ -103,13 +104,11 @@ export default function useUsers() {
       return setStateCategory(true);
     }
   };
+
   const activeSymbol = () => {
-    if (stateCategory === false) {
-      return '▼';
-    } else {
-      return '▲';
-    }
+    return stateCategory ? '▲' : '▼';
   };
+
   return {
     stateCategory,
     categoryTitles,
@@ -184,9 +183,18 @@ function sortByState(x, y) {
   return 0;
 }
 
-// function sortByField(x, y, field) {
-//   return x[field] - y[field];
-// }
+function sortByField(x, y, field) {
+  if (typeof x[field] === 'string') {
+    if (x[field] < y[field]) {
+      return -1;
+    }
+    if (x[field] > y[field]) {
+      return 1;
+    }
+    return 0;
+  }
+  return x[field] - y[field];
+}
 
 // const data = [{ adress: 'minsk', email: 'a@a', addressState: 'SSS' }];
 // const input = 'SSS';
@@ -250,7 +258,7 @@ function sortByState(x, y) {
 // ];
 
 const actualUsers = (array, seachValue) => {
-  if (seachValue === '') {
+  if (seachValue.length < 2) {
     return array;
   } else {
     return array.filter(
