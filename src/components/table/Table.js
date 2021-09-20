@@ -1,11 +1,8 @@
 import './style.css';
 import TableItem from '../tableItem/TableItem';
-import usePagination from '../../hooks/usePagination';
 import Pagination from '../../components/pagination/Pagination';
-// import useGridData from '../../hooks/useGridData';
 
 export default function Table(props) {
-  // const users = useGridDataList();
   const {
     categoryTitles,
     users,
@@ -15,9 +12,9 @@ export default function Table(props) {
     activeSymbol,
     setSelectedProfile,
     selectedProfile,
+    pagination,
   } = props;
 
-  const pagination = usePagination(users.length);
   const usersList = users.slice(pagination.skip, pagination.limit);
 
   return (

@@ -27,11 +27,16 @@ export default function usePagination(itemsAmount) {
     setCurrentPage(currentPage - 1);
   };
 
+  const reset = () => {
+    setCurrentPage(1);
+  };
+
   return {
     isNextVisible,
     isPrevVisible,
     nextPage,
     prevPage,
+    reset,
     skip,
     limit,
   };

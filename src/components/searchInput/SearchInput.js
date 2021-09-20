@@ -5,7 +5,7 @@ import Select from '../select/Select';
 const textInput = React.createRef();
 
 export default function SearchInput(props) {
-  const { setValueSearchInput, allStates, setSelectedState, selectedState } = props;
+  const { setValueSearchInput, allStates, setSelectedState, selectedState, pagination } = props;
 
   return (
     <div className="dataInputContainer">
@@ -14,7 +14,10 @@ export default function SearchInput(props) {
         <input
           ref={textInput}
           type="text"
-          onChange={() => setValueSearchInput(textInput.current.value)}
+          onChange={() => {
+            setValueSearchInput(textInput.current.value);
+            pagination.reset();
+          }}
           className="entryField"
           placeholder=" Search..."
         />
@@ -22,6 +25,7 @@ export default function SearchInput(props) {
           allStates={allStates}
           setSelectedState={setSelectedState}
           selectedState={selectedState}
+          pagination={pagination}
         />
       </div>
     </div>

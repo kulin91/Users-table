@@ -3,6 +3,7 @@ import Table from '../../components/table/Table';
 import ProfileInfo from '../../components/profileInfo/ProfileInfo';
 import useGridData from '../../hooks/useGridData';
 import SearchInput from '../../components/searchInput/SearchInput';
+import usePagination from '../../hooks/usePagination';
 
 export default function UsersTable() {
   const {
@@ -19,11 +20,13 @@ export default function UsersTable() {
     setValueSearchInput,
     setSelectedState,
   } = useGridData();
+  const pagination = usePagination(users.length);
 
   return (
     <div>
       <div className="header">
         <SearchInput
+          pagination={pagination}
           allStates={allStates}
           setSelectedState={setSelectedState}
           selectedState={selectedState}
@@ -31,6 +34,7 @@ export default function UsersTable() {
         />
       </div>
       <Table
+        pagination={pagination}
         categoryTitles={categoryTitles}
         users={users}
         selectedCategoryIndex={selectedCategoryIndex}

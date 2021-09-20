@@ -2,11 +2,12 @@ import './style.css';
 import React from 'react';
 
 export default function Select(props) {
-  const { allStates, selectedState, setSelectedState } = props;
+  const { allStates, selectedState, setSelectedState, pagination } = props;
   const allStatesArray = Array.from(allStates);
   allStatesArray.unshift('All state');
 
   const handleChange = (e) => {
+    pagination.reset();
     setSelectedState(e.target.value);
   };
 
